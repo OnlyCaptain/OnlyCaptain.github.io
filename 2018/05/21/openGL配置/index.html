@@ -118,17 +118,17 @@
 <meta property="og:site_name" content="Captain&#39;s blog">
 <meta property="og:description" content="@author: zhanjzh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/openGL配置/media/1526922099031.png">
-<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/openGL配置/media/1526922119803.png">
-<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/openGL配置/media/1526922170704.png">
-<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/openGL配置/media/1526922268708.png">
-<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/openGL配置/media/1526922637473.png">
-<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/openGL配置/media/1526923214110.png">
-<meta property="og:updated_time" content="2018-08-18T14:16:54.635Z">
+<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/media/1526922099031.png">
+<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/media/1526922119803.png">
+<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/media/1526922170704.png">
+<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/media/1526922268708.png">
+<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/media/1526922637473.png">
+<meta property="og:image" content="https://onlycaptain.github.io/2018/05/21/media/1526923214110.png">
+<meta property="og:updated_time" content="2018-08-19T09:47:50.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL配置">
 <meta name="twitter:description" content="@author: zhanjzh">
-<meta name="twitter:image" content="https://onlycaptain.github.io/2018/05/21/openGL配置/media/1526922099031.png">
+<meta name="twitter:image" content="https://onlycaptain.github.io/2018/05/21/media/1526922099031.png">
 
 
 
@@ -381,7 +381,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-18 22:16:54" itemprop="dateModified" datetime="2018-08-18T22:16:54+08:00">2018-08-18</time>
+                <time title="Modified: 2018-08-19 17:47:50" itemprop="dateModified" datetime="2018-08-19T17:47:50+08:00">2018-08-19</time>
               
             
           </span>
@@ -441,16 +441,16 @@
 </li>
 <li><p>在上面下载的三个库中，找出下面对应的文件：</p>
 <ol>
-<li><p>glfw：<img src=".\media\1526922099031.png" alt="1526922099031"></p>
+<li><p>glfw：<img src="../media/1526922099031.png" alt="1526922099031"></p>
 </li>
 <li><p>glm：</p>
-<p><img src=".\media\1526922119803.png" alt="1526922119803"></p>
+<p><img src="../media/1526922119803.png" alt="1526922119803"></p>
 </li>
 <li><p>glew:</p>
-<p><img src=".\media\1526922170704.png" alt="1526922170704"></p>
+<p><img src="../media/1526922170704.png" alt="1526922170704"></p>
 </li>
 <li><p>以及与它们相关的lib文件，这里统一列出：</p>
-<p><img src=".\media\1526922268708.png" alt="1526922268708"></p>
+<p><img src="../media/1526922268708.png" alt="1526922268708"></p>
 </li>
 </ol>
 </li>
@@ -458,7 +458,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">├─GL</span><br><span class="line">│      eglew.h</span><br><span class="line">│      glew.h</span><br><span class="line">│      glxew.h</span><br><span class="line">│      wglew.h</span><br><span class="line">│      </span><br><span class="line">├─GLFW</span><br><span class="line">│      glfw3.h</span><br><span class="line">│      glfw3native.h</span><br><span class="line">│      </span><br><span class="line">├─glm</span><br><span class="line">│  │  ext.hpp</span><br><span class="line">│  │  glm.hpp</span><br><span class="line">│  │  </span><br><span class="line">│  ├─core  <span class="comment">// 文件夹</span></span><br><span class="line">│  │      </span><br><span class="line">│  ├─gtc  <span class="comment">// 文件夹</span></span><br><span class="line">│  │      </span><br><span class="line">│  ├─gtx  <span class="comment">// 文件夹</span></span><br><span class="line">│  │      </span><br><span class="line">│  └─virtrev  <span class="comment">//文件夹</span></span><br><span class="line">│          </span><br><span class="line">└─libs</span><br><span class="line">        glew32.lib</span><br><span class="line">        glew32s.lib</span><br><span class="line">        glfw3.lib</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>新建你的project，找到你的源文件(.cpp) 文件目录下，将上述这几个文件夹复制进去，在我的电脑上为：</p>
-<p><img src=".\media\1526922637473.png" alt="1526922637473"></p>
+<p><img src="../media/1526922637473.png" alt="1526922637473"></p>
 </li>
 <li><p>新建solution.h 即上面那个头文件，将下面引用代码放进去：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _SOLUTION_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _SOLUTION_H_</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GLEW_STATIC</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"GL/glew.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"GLFW/glfw3.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"glm/glm.hpp"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment (lib, <span class="meta-string">"opengl32.lib"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment (lib, <span class="meta-string">"libs/glfw3.lib"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment (lib, <span class="meta-string">"libs/glew32s.lib"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
@@ -469,7 +469,7 @@
 </li>
 </ol>
 <h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p>如果输出结果 为：</p>
-<p><img src=".\media\1526923214110.png" alt="1526923214110"></p>
+<p><img src="../media/1526923214110.png" alt="1526923214110"></p>
 <p>则一切正常，配置完成。</p>
 <p>author： zhanjzh</p>
 
