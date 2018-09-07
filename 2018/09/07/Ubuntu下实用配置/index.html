@@ -111,16 +111,16 @@
 
 
   <meta name="description" content="@author: zhanjzh">
-<meta name="keywords" content="configuration study">
+<meta name="keywords" content="Ubuntu Application">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修复Ubuntu系统内核崩溃错误">
-<meta property="og:url" content="https://onlycaptain.github.io/2018/08/19/修复Ubuntu系统内核崩溃错误/index.html">
+<meta property="og:title" content="Ubuntu下实用配置">
+<meta property="og:url" content="https://onlycaptain.github.io/2018/09/07/Ubuntu下实用配置/index.html">
 <meta property="og:site_name" content="Captain&#39;s blog">
 <meta property="og:description" content="@author: zhanjzh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T16:52:03.099Z">
+<meta property="og:updated_time" content="2018-09-07T19:45:59.370Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修复Ubuntu系统内核崩溃错误">
+<meta name="twitter:title" content="Ubuntu下实用配置">
 <meta name="twitter:description" content="@author: zhanjzh">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="https://onlycaptain.github.io/2018/08/19/修复Ubuntu系统内核崩溃错误/"/>
+  <link rel="canonical" href="https://onlycaptain.github.io/2018/09/07/Ubuntu下实用配置/"/>
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>修复Ubuntu系统内核崩溃错误 | Captain's blog</title>
+  <title>Ubuntu下实用配置 | Captain's blog</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2018/08/19/修复Ubuntu系统内核崩溃错误/">
+    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2018/09/07/Ubuntu下实用配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhanjzh">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">修复Ubuntu系统内核崩溃错误
+          <h1 class="post-title" itemprop="name headline">Ubuntu下实用配置
               
             
           </h1>
@@ -357,17 +357,47 @@
                 
               
 
-              <time title="Created: 2018-08-19 00:40:56 / Modified: 00:52:03" itemprop="dateCreated datePublished" datetime="2018-08-19T00:40:56+08:00">2018-08-19</time>
+              <time title="Created: 2018-09-07 23:46:08" itemprop="dateCreated datePublished" datetime="2018-09-07T23:46:08+08:00">2018-09-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-08 03:45:59" itemprop="dateModified" datetime="2018-09-08T03:45:59+08:00">2018-09-08</time>
               
             
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ubuntu-config/" itemprop="url" rel="index"><span itemprop="name">Ubuntu config</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -375,7 +405,7 @@
 
           
           
-             <span id="/2018/08/19/修复Ubuntu系统内核崩溃错误/" class="leancloud_visitors" data-flag-title="修复Ubuntu系统内核崩溃错误">
+             <span id="/2018/09/07/Ubuntu下实用配置/" class="leancloud_visitors" data-flag-title="Ubuntu下实用配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,34 +438,45 @@
       
         <p>@author: zhanjzh</p>
 <a id="more"></a>
-<h2 id="前景说明："><a href="#前景说明：" class="headerlink" title="前景说明："></a>前景说明：</h2><blockquote>
-<p>在安装Nvidia显卡时尝试降级内核失败，导致系统崩溃<br>笔记本电脑配置为：msi 电脑，GTX 1050 ti,<br>对Ubuntu下安装显卡感兴趣的可以参考我另一篇博客</p>
+<blockquote>
+<p>作为日常使用的系统，Ubuntu 下有很多可以提高用户体验的实用配置。<br>这篇博客将会列举在使用 Ubuntu 过程中遇到的一些有用的配置。<br>此文将不定时更新。</p>
 </blockquote>
-<h2 id="修复步骤"><a href="#修复步骤" class="headerlink" title="修复步骤"></a>修复步骤</h2><blockquote>
-<p>自行准备 Live-cd，实际上就是当初装系统用的启动盘。</p>
+<h3 id="省电模式安装"><a href="#省电模式安装" class="headerlink" title="省电模式安装"></a>省电模式安装</h3><ul>
+<li>工具： laptop-mode-tools</li>
+<li>安装：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install laptop-mode-tools</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>检查是否安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep laptop-mode-tools</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 laptop-mode:</p>
+<ul>
+<li><p>修改 /etc/laptop-mode/laptop-mode.conf 文件中的项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ENABLE_LAPTOP_MODE_ON_BATTERY=1</span><br><span class="line">ENABLE_LAPTOP_MODE_ON_AC=1</span><br><span class="line">ENABLE_LAPTOP_MODE_WHEN_LID_CLOSED=1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 laptop：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo laptop_mode start</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>说明：安装成功后在休眠和合上盖子时系统都会自动挂起，直到系统被手动唤醒，<br>成功安装 laptop 后，为了更加省电，可以将核心显卡关闭（没有显卡的同学就不用了）</p>
 </blockquote>
-<p>首先，进入Live-cd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure></p>
-<p>列出磁盘信息，根据文件系统和分区大小判断出 根目录 / 所在分区<br>例如我的就是 <code>/dev/sda3</code></p>
-<p>之后挂载根目录以及旗下的一系列目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mount /dev/sda3 /mnt</span><br><span class="line">sudo mount --bind /dev /mnt/dev</span><br><span class="line">sudo mount --bind /proc /mnt/proc</span><br><span class="line">sudo mount --bind /sys /mnt/sys</span><br><span class="line">sudo cp /etc/resolv.conf /mnt/etc</span><br></pre></td></tr></table></figure>
-<p>之后，如果你的boot目录是自己额外分区的（一般不会，但是我当初安装时搞事情额外分区了）<br>那么你就需要再找到boot目录对应的分区，例如我的分区就是 <code>/dev/sda5</code>.<br>若你额外分区之后又没有挂载，那么接下来的命令你可能会失败。</p>
-<p>使用chroot命令进入系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chroot /mnt</span><br></pre></td></tr></table></figure>
-<p>—— 分割线 ——-</p>
-<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention!"></a>Attention!</h2><p>这时请注意，通过命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /boot/</span><br></pre></td></tr></table></figure>
-<p>查看boot目录下是否有系统启动需要的内核，例如：<br><code>vmlinuz-4.0.15-22-generic</code><br>这样的东西，若没有需要自己重新安装，或者使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install linux-image-generic</span><br></pre></td></tr></table></figure>
-<p>安装完毕之后，请确保执行下列命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-grub</span><br></pre></td></tr></table></figure>
-<p>可以说这条命令是修系统的核心了，若没有执行这条命令，grub的配置<br>文件就不会被修改，就算前面做了再多也是无用功。<br>之后，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">sudo umount /mnt/sys</span><br><span class="line">sudo umount /mnt/proc</span><br><span class="line">sudo umount /mnt/dev</span><br><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure>
-<p>PS: 如果你跟我一样自己额外挂载了boot目录，那么你首先需要卸载 /mnt/boot<br>在执行 sudo umount /mnt 之前需要执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt/boot</span><br></pre></td></tr></table></figure></p>
-<p>然后，推荐关机之后再重启，因为你需要时间拔掉你的live-cd。</p>
-<p>这时，进入引导项后，grub就应该找得到你的内核，不会再出现如下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: file &apos;/vmlinuz-4.15.0-22-generic&apos; not found  </span><br><span class="line">error: you need to load the kernel first</span><br></pre></td></tr></table></figure></p>
-<p>如果此时你的windows启动项不见了请不用慌张，进入Ubuntu系统或者<br>Advance ubuntu 选项，使用<code>recovery mode</code> 进入系统，总之进入Ubuntu系统后<br>再次执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure></p>
-<p>命令。然后重启，可以看到一切恢复正常。</p>
-<p>参考了网上的教程以及论坛里的分析，根据自己系统的实际情况编写此教程，</p>
+<ul>
+<li><p>关闭核心显卡 ( 需要先安装Nvidia驱动，具体可参考另一篇博客[<a href="https://onlycaptain.github.io/2018/08/18/Ubuntu%E4%B8%8BNvidia%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/]">https://onlycaptain.github.io/2018/08/18/Ubuntu%E4%B8%8BNvidia%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/]</a>)</p>
+<ul>
+<li><p>选择集显作为图形界面处理器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo prime-select intel</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启电脑</p>
+</li>
+<li>恢复核心显卡 (只适用于Nvidia卡的情况)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo prime-select nvidia</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -454,6 +495,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu-Application/" rel="tag"># Ubuntu Application</a>
+          
+        </div>
+      
 
       
       
@@ -463,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/18/Ubuntu下Nvidia驱动安装/" rel="next" title="Ubuntu下Nvidia驱动安装">
-                <i class="fa fa-chevron-left"></i> Ubuntu下Nvidia驱动安装
+              <a href="/2018/08/19/Ubuntu系统备份/" rel="next" title="Ubuntu系统备份">
+                <i class="fa fa-chevron-left"></i> Ubuntu系统备份
               </a>
             
           </div>
@@ -472,10 +519,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/19/修复Ubuntu下显卡驱动错误/" rel="prev" title="修复Ubuntu下显卡驱动错误">
-                修复Ubuntu下显卡驱动错误 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前景说明："><span class="nav-number">1.</span> <span class="nav-text">前景说明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修复步骤"><span class="nav-number">2.</span> <span class="nav-text">修复步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attention"><span class="nav-number">3.</span> <span class="nav-text">Attention!</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#省电模式安装"><span class="nav-number">1.</span> <span class="nav-text">省电模式安装</span></a></li></ol></div>
             
 
           </div>
