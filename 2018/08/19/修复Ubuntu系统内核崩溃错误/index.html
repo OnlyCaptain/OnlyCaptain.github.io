@@ -408,10 +408,10 @@
       
         <p>@author: zhanjzh</p>
 <a id="more"></a>
-<h2 id="前景说明："><a href="#前景说明：" class="headerlink" title="前景说明："></a>前景说明：</h2><blockquote>
+<h2><span id="前景说明">前景说明：</span></h2><blockquote>
 <p>在安装Nvidia显卡时尝试降级内核失败，导致系统崩溃<br>笔记本电脑配置为：msi 电脑，GTX 1050 ti,<br>对Ubuntu下安装显卡感兴趣的可以参考我另一篇博客</p>
 </blockquote>
-<h2 id="修复步骤"><a href="#修复步骤" class="headerlink" title="修复步骤"></a>修复步骤</h2><blockquote>
+<h2><span id="修复步骤">修复步骤</span></h2><blockquote>
 <p>自行准备 Live-cd，实际上就是当初装系统用的启动盘。</p>
 </blockquote>
 <p>首先，进入Live-cd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure></p>
@@ -422,7 +422,7 @@
 <p>使用chroot命令进入系统</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chroot /mnt</span><br></pre></td></tr></table></figure>
 <p>—— 分割线 ——-</p>
-<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention!"></a>Attention!</h2><p>这时请注意，通过命令</p>
+<h2><span id="attention">Attention!</span></h2><p>这时请注意，通过命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /boot/</span><br></pre></td></tr></table></figure>
 <p>查看boot目录下是否有系统启动需要的内核，例如：<br><code>vmlinuz-4.0.15-22-generic</code><br>这样的东西，若没有需要自己重新安装，或者使用命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install linux-image-generic</span><br></pre></td></tr></table></figure>
@@ -632,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前景说明："><span class="nav-number">1.</span> <span class="nav-text">前景说明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修复步骤"><span class="nav-number">2.</span> <span class="nav-text">修复步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attention"><span class="nav-number">3.</span> <span class="nav-text">Attention!</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前景说明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">修复步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Attention!</span></a></li></ol></div>
             
 
           </div>
