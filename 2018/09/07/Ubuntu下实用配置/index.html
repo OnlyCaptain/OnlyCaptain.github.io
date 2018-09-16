@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="Captain&#39;s blog">
 <meta property="og:description" content="@author: zhanjzh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-10T14:30:31.057Z">
+<meta property="og:updated_time" content="2018-09-16T20:21:34.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下实用配置">
 <meta name="twitter:description" content="@author: zhanjzh">
@@ -374,7 +374,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-10 22:30:31" itemprop="dateModified" datetime="2018-09-10T22:30:31+08:00">2018-09-10</time>
+                <time title="Modified: 2018-09-17 04:21:34" itemprop="dateModified" datetime="2018-09-17T04:21:34+08:00">2018-09-17</time>
               
             
           </span>
@@ -489,6 +489,12 @@
 <p>第二种<br>在命令行下输入 regedit ,编辑注册表<br>找到下面目录位置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Control/TimeZoneInformation/</span><br></pre></td></tr></table></figure>
 <p>添加一项类型为：REG_DDWORD 的键值，命名为： RealTimeIsUniversal，值为 1, 然后重启</p>
+<h3 id="Windows-下的解压文件在-Linux-下中文名乱码问题"><a href="#Windows-下的解压文件在-Linux-下中文名乱码问题" class="headerlink" title="Windows 下的解压文件在 Linux 下中文名乱码问题"></a>Windows 下的解压文件在 Linux 下中文名乱码问题</h3><p>Windows下的中文文件名默认编码为 <code>GBK</code>，Linux 下的中文文件名编码默认为 <code>UTF-8</code>， 在 Windows 下打包压缩的 <code>zip</code> 文件放到Linux下解压缩后会呈现出乱码。</p>
+<p>解决的方法有很多种，原理都是在解压缩的时候将字符编码参数转换为 <code>UTF-8</code>，同样适用于单文件名。</p>
+<p>一种简单粗暴，但十分有效的方法：<br>使用 <code>unar</code> 工具，<code>unar</code> 会自动检测文件的编码，特别适用于文件编码不知道的情况下，当然也可以通过 -e 参数来指定文件编码。</p>
+<p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install unar</span><br></pre></td></tr></table></figure></p>
+<p>使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unar 中文文件.zip</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置-zsh"><a href="#配置-zsh" class="headerlink" title="配置 zsh"></a>配置 zsh</h3><p>zsh 使用 oh-my-zsh。<br>zsh 作为一种终端工具，它的高亮和自动补全功能一直是最大的亮点，同时也支持多种主题的配置。安装zsh 我是参照的网上 Jim 老哥的<a href="http://www.cnblogs.com/EasonJim/p/7863099.html" target="_blank" rel="noopener">博客</a>,<br>想要配置的同学请自行取用，这里就不复制粘帖了。</p>
 
       
     </div>
@@ -687,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#省电模式安装"><span class="nav-number">1.</span> <span class="nav-text">省电模式安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双系统同步-windows-和-Linux-时间"><span class="nav-number">2.</span> <span class="nav-text">双系统同步 windows 和 Linux 时间</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#省电模式安装"><span class="nav-number">1.</span> <span class="nav-text">省电模式安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双系统同步-windows-和-Linux-时间"><span class="nav-number">2.</span> <span class="nav-text">双系统同步 windows 和 Linux 时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-下的解压文件在-Linux-下中文名乱码问题"><span class="nav-number">3.</span> <span class="nav-text">Windows 下的解压文件在 Linux 下中文名乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-zsh"><span class="nav-number">4.</span> <span class="nav-text">配置 zsh</span></a></li></ol></div>
             
 
           </div>
