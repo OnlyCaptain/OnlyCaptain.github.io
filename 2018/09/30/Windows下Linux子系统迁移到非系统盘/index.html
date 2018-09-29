@@ -110,18 +110,18 @@
 
 
 
-  <meta name="description" content="@author: zhanjzh">
-<meta name="keywords" content="Ubuntu,Application">
+  <meta name="description" content="@author:zhanjzh">
+<meta name="keywords" content="config">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu下安装shadowsocks">
-<meta property="og:url" content="https://onlycaptain.github.io/2018/08/19/Ubuntu下安装shadowsocks/index.html">
+<meta property="og:title" content="Windows下Linux子系统迁移到非系统盘">
+<meta property="og:url" content="https://onlycaptain.github.io/2018/09/30/Windows下Linux子系统迁移到非系统盘/index.html">
 <meta property="og:site_name" content="Captain&#39;s blog">
-<meta property="og:description" content="@author: zhanjzh">
+<meta property="og:description" content="@author:zhanjzh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T18:37:16.099Z">
+<meta property="og:updated_time" content="2018-09-29T17:25:17.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu下安装shadowsocks">
-<meta name="twitter:description" content="@author: zhanjzh">
+<meta name="twitter:title" content="Windows下Linux子系统迁移到非系统盘">
+<meta name="twitter:description" content="@author:zhanjzh">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="https://onlycaptain.github.io/2018/08/19/Ubuntu下安装shadowsocks/"/>
+  <link rel="canonical" href="https://onlycaptain.github.io/2018/09/30/Windows下Linux子系统迁移到非系统盘/"/>
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>Ubuntu下安装shadowsocks | Captain's blog</title>
+  <title>Windows下Linux子系统迁移到非系统盘 | Captain's blog</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2018/08/19/Ubuntu下安装shadowsocks/">
+    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2018/09/30/Windows下Linux子系统迁移到非系统盘/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhanjzh">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu下安装shadowsocks
+          <h1 class="post-title" itemprop="name headline">Windows下Linux子系统迁移到非系统盘
               
             
           </h1>
@@ -357,7 +357,7 @@
                 
               
 
-              <time title="Created: 2018-08-19 01:01:46 / Modified: 02:37:16" itemprop="dateCreated datePublished" datetime="2018-08-19T01:01:46+08:00">2018-08-19</time>
+              <time title="Created: 2018-09-30 01:11:19 / Modified: 01:25:17" itemprop="dateCreated datePublished" datetime="2018-09-30T01:11:19+08:00">2018-09-30</time>
             
 
             
@@ -379,7 +379,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a></span>
 
                 
                 
@@ -393,7 +393,7 @@
 
           
           
-             <span id="/2018/08/19/Ubuntu下安装shadowsocks/" class="leancloud_visitors" data-flag-title="Ubuntu下安装shadowsocks">
+             <span id="/2018/09/30/Windows下Linux子系统迁移到非系统盘/" class="leancloud_visitors" data-flag-title="Windows下Linux子系统迁移到非系统盘">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -424,36 +424,58 @@
       
 
       
-        <p>@author: zhanjzh</p>
+        <p>@author:zhanjzh</p>
 <a id="more"></a>
-<h2><span id="安装背景">安装背景</span></h2><p>&emsp;之前在Ubuntu系统上配置过多种科学上网方式，我尽可能地挑选在windows下和<br>在Ubuntu下体验一致的配置方法。（双系统来回切换不想适应两种习惯)</p>
-<p>&emsp;我使用的vpn是shadowsocks 服务，不了解SSR 的vpn服务是否也能用这种配置方法。</p>
-<h2><span id="安装shadowsocks">安装Shadowsocks</span></h2><p>在下面的链接下载ShadowSocks-Qt5 V3.0.0</p>
+<p>Windows下的Linux子系统对于工作在Linux系统下的人而言是十分方便的，但是用久了就会发现子系统对C盘的占用空间越来越大，原因在于Linux默认安装在用户目录下的 <code>AppData\Local\Packages</code> 下。</p>
+<p>本文介绍在Windows下对Linux子系统迁移的方法。</p>
+<h3><span id="工具">工具</span></h3><p><code>mklink</code> : 本质上是一个创建链接的工具，这里使用<code>mklink</code> 欺骗系统，使系统误以为还是安装在了C盘</p>
+<p>首先，我们需要找到子系统安装的文件系统在哪个位置，根据以往的经验，系统位置在：</p>
 <blockquote>
-<p>[<a href="https://github.com/shadowsocks/shadowsocks-qt5/releases]" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks-qt5/releases]</a></p>
+<p>C:\Users\xxxx\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows</p>
 </blockquote>
-<p>注意下载尾缀为 <code>.AppImage</code> 的文件。</p>
-<p>将下载后的AppImage文件放置在固定的位置，例如主目录下新建一个<code>shadowsocks</code>目录，<br>然后赋予其执行权限。</p>
-<p>下面是我运行的命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir shadowsocks</span><br><span class="line">mv Shadowsocks-Qt5-3.0.0-x86_64.AppImage shadowsocks/</span><br><span class="line">sudo chmod a+x Shadowsocks-Qt5-3.0.0-x86_64.AppImage</span><br></pre></td></tr></table></figure>
-<p>当要运行时, 简单的方法是执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Shadowsocks-Qt5-3.0.0-x86_64.AppImage</span><br></pre></td></tr></table></figure></p>
-<p>为了便捷使用，可以创建一个<code>.desktop</code> 文件，将其当作应用来使用。<br>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim shadowsocks.desktop</span><br></pre></td></tr></table></figure></p>
-<p>将下面的代码复制进去：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Version=V3.0.0Alpha</span><br><span class="line">Name=Shadowsocks</span><br><span class="line">Name[en_US]=Shadowsocks</span><br><span class="line">Name[zh_CN]=影梭</span><br><span class="line">Comment=shadowsocks qt application</span><br><span class="line">Exec=/home/zhanjzh/shadowsocks/Shadowsocks-Qt5-3.0.0-x86_64.AppImage</span><br><span class="line">Icon=/home/zhanjzh/shadowsocks/shadowsocks.jpeg</span><br><span class="line">StartupNotify=true</span><br><span class="line">Terminal=false</span><br><span class="line">Type=Application</span><br><span class="line">Categories=Applicatin;Internet;</span><br><span class="line">MimeType=application/shadowsocks</span><br></pre></td></tr></table></figure>
-<p>其中 <code>Exec</code> 和 <code>Icon</code> 的路径请自行改为自己的路径。<br>此处参考： [<a href="https://blog.csdn.net/lwjdgl/article/details/49204659]" target="_blank" rel="noopener">https://blog.csdn.net/lwjdgl/article/details/49204659]</a></p>
-<p>保存，退出后，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv shadowsocks.desktop /usr/share/applications</span><br></pre></td></tr></table></figure></p>
-<p>然后可以在系统的应用中就能找到名为 <code>影梭</code> 或 <code>shadowsocks</code> 的快捷方式。<br>可以将其添加进收藏夹，以后要使用的话，双击即可。</p>
-<h2><span id="配置pac">配置pac</span></h2><p>配置pac的原因：pac作用是过滤被墙的网站，未被屏蔽的网站不走shadowsocks代理。<br>一方面减少流量负担，一方面不影响国内正常网站的访问速度。</p>
-<p>配置：<br>默认装好pip，若未安装，运行下面命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure></p>
-<p>安装GenPAC：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install genpac</span><br><span class="line">pip install --upgrade genpac</span><br></pre></td></tr></table></figure></p>
-<p>下载gfwlist:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac --pac-proxy &quot;SOCKS5 127.0.0.1:1080&quot; --gfwlist-proxy=&quot;SOCKS5 127.0.0.1:1080&quot; --gfwlist-url=https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt --output=&quot;autoproxy.pac&quot;</span><br></pre></td></tr></table></figure></p>
-<p>全局代理设置：<br>打开系统设置，选择网络-&gt;网络代理，将网络代理设置为自动，下方的配置URL方框里面填上<br>autoproxy.pac 所在的位置，例如：</p>
+<p>注意 <code>AppData</code> 文件夹是隐藏文件夹，你需要打开查看隐藏文件的选项。</p>
+<p>但实际上这个根据你自己安装的子系统需要自己另外确定，我上次安装的文件夹是上面哪个，第二次安装又变成了下面这个：</p>
 <blockquote>
-<p>file:///home/zhanjzh/autoproxy.pac</p>
+<p>C:\Users\xxxx\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc</p>
 </blockquote>
-<p>完成。</p>
-<hr>
-<p>很久之前配置过的东西，突然记起来写个备忘录。<br>如果有问题请联系我。 zhanjzh</p>
+<h3><span id="定位linux子系统的文件系统位置">定位Linux子系统的文件系统位置</span></h3><p>简单直接的方法：</p>
+<ul>
+<li>首先安装一遍Linux子系统，在</li>
+</ul>
+<blockquote>
+<p> C:\Users\xxxx\AppData\Local\Packages\</p>
+</blockquote>
+<p>下查看带有类似 <code>CanonicalGroupLimited.UbuntuonWindows</code> 字眼的新文件夹，记下它的名字。</p>
+<h3><span id="开始安装">开始安装</span></h3><ul>
+<li>卸载Linux子系统。</li>
+</ul>
+<p>卸载的原因在于Linux子系统下的文件系统的权限更改十分复杂，这里面的一些文件不属于Windows下的管理员用户所有，也不属于你的用户，它就是Linux下用户所有的，使用一般的修改权限文件方法很容易出问题。因此还是推荐先备份后再卸载。</p>
+<ul>
+<li>创造软链接</li>
+</ul>
+<p>使用管理员打开<code>cmd</code>， 输入下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklink /j C:\Users\XXXX\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc  H:\Linux-share\WSL\</span><br></pre></td></tr></table></figure>
+<p>后面那个 <code>H:\Linux-share\WSL\</code> 是非系统盘的位置。</p>
+<ul>
+<li>创建成功后再打开应用商店，安装Linux子系统。</li>
+</ul>
+<h3><span id="问题">问题</span></h3><ul>
+<li>安装成功后出现 <code>0x800703fa</code></li>
+</ul>
+<blockquote>
+<p>WslRegisterDistribution failed with error: 0x800703fa</p>
+</blockquote>
+<p>网上查过方法：在运行窗口中执行“services.msc”指令，在本地服务中重启 LxssManager 服务即可。 </p>
+<p>经确认，行之有效。</p>
+<ul>
+<li>如果出现了什么文件夹权限的问题（我没有出现过），可以用下面的命令：</li>
+</ul>
+<blockquote>
+<p>icacls Linux-share\WSL\ /grant “你的用户名:(OI)(CI)(F)”</p>
+</blockquote>
+<p>我没有遇见过文件权限问题，但是我曾经执行过上面这条语句，如果遇见了，可以试一下。</p>
+<h3><span id="总结">总结</span></h3><p>网上查找了许多方法，试过了不少。有个博主使用的是将<code>AppData</code>下的<code>Local</code>目录全部指向其他地方的方法，如果这个方法有效的话想必能省很多C盘空间，可惜的是，不行。文件在复制迁移的过程会遇见权限问题，即便是另外使用管理员用户也不行，除非使用 PE 盘，但是那样太过于麻烦。 这篇文章介绍的方法其实是一种折中的方式，迁移文件不涉及到那些存在权限问题的文件。</p>
+<p>同样的道理，使用 <code>mklink</code> 工具可以将其他大文件迁移到非系统盘后再创造软链接，用于减小C盘负担是很不错的。</p>
 
       
     </div>
@@ -474,9 +496,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-          
-            <a href="/tags/Application/" rel="tag"># Application</a>
+            <a href="/tags/config/" rel="tag"># config</a>
           
         </div>
       
@@ -489,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/19/修复Ubuntu下显卡驱动错误/" rel="next" title="修复Ubuntu下显卡驱动错误">
-                <i class="fa fa-chevron-left"></i> 修复Ubuntu下显卡驱动错误
+              <a href="/2018/09/07/Ubuntu下实用配置/" rel="next" title="Ubuntu下实用配置">
+                <i class="fa fa-chevron-left"></i> Ubuntu下实用配置
               </a>
             
           </div>
@@ -498,10 +518,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/19/Ubuntu系统备份/" rel="prev" title="Ubuntu系统备份">
-                Ubuntu系统备份 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -662,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装Shadowsocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置pac</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">定位Linux子系统的文件系统位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">开始安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
