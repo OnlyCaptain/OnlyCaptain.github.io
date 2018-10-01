@@ -110,18 +110,18 @@
 
 
 
-  <meta name="description" content="@author: zhanjzh">
-<meta name="keywords" content="configuration study">
+  <meta name="description" content="@author:zhanjzh">
+<meta name="keywords" content="config Applications">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修复Ubuntu下显卡驱动错误">
-<meta property="og:url" content="https://onlycaptain.github.io/2018/08/19/修复Ubuntu下显卡驱动错误/index.html">
+<meta property="og:title" content="Ubuntu下google不能正确代理的解决方法">
+<meta property="og:url" content="https://onlycaptain.github.io/2018/10/01/Ubuntu下google不能正确代理的解决方法/index.html">
 <meta property="og:site_name" content="Captain&#39;s blog">
-<meta property="og:description" content="@author: zhanjzh">
+<meta property="og:description" content="@author:zhanjzh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T16:59:39.955Z">
+<meta property="og:updated_time" content="2018-10-01T14:38:17.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修复Ubuntu下显卡驱动错误">
-<meta name="twitter:description" content="@author: zhanjzh">
+<meta name="twitter:title" content="Ubuntu下google不能正确代理的解决方法">
+<meta name="twitter:description" content="@author:zhanjzh">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="https://onlycaptain.github.io/2018/08/19/修复Ubuntu下显卡驱动错误/"/>
+  <link rel="canonical" href="https://onlycaptain.github.io/2018/10/01/Ubuntu下google不能正确代理的解决方法/"/>
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>修复Ubuntu下显卡驱动错误 | Captain's blog</title>
+  <title>Ubuntu下google不能正确代理的解决方法 | Captain's blog</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2018/08/19/修复Ubuntu下显卡驱动错误/">
+    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2018/10/01/Ubuntu下google不能正确代理的解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhanjzh">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">修复Ubuntu下显卡驱动错误
+          <h1 class="post-title" itemprop="name headline">Ubuntu下google不能正确代理的解决方法
               
             
           </h1>
@@ -357,7 +357,7 @@
                 
               
 
-              <time title="Created: 2018-08-19 00:53:40 / Modified: 00:59:39" itemprop="dateCreated datePublished" datetime="2018-08-19T00:53:40+08:00">2018-08-19</time>
+              <time title="Created: 2018-10-01 22:21:20 / Modified: 22:38:17" itemprop="dateCreated datePublished" datetime="2018-10-01T22:21:20+08:00">2018-10-01</time>
             
 
             
@@ -368,6 +368,24 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -375,7 +393,7 @@
 
           
           
-             <span id="/2018/08/19/修复Ubuntu下显卡驱动错误/" class="leancloud_visitors" data-flag-title="修复Ubuntu下显卡驱动错误">
+             <span id="/2018/10/01/Ubuntu下google不能正确代理的解决方法/" class="leancloud_visitors" data-flag-title="Ubuntu下google不能正确代理的解决方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,17 +424,21 @@
       
 
       
-        <p>@author: zhanjzh</p>
+        <p>@author:zhanjzh</p>
 <a id="more"></a>
-<h2><span id="前景说明">前景说明</span></h2><blockquote>
-<p>之前因为装Nvidia的驱动过程中尝试过降级内核，然后降级失败<br>内核崩溃。尝试重装内核修复完成后，进入系统发现系统中网卡驱动<br>全部丢失。具体表现为：<br>执行命令：ifconfig -a 出来的结果只有本地回环 <code>lo</code> 。</p>
+<h2><span id="问题陈述">问题陈述</span></h2><p>在某些环境下，我们配置的 shadowsocks 代理可能在chrome之外的浏览器能正常工作，但在chrome下反而不能正确代理流量。</p>
+<h2><span id="寻找解决方法">寻找解决方法</span></h2><p>通过打开 chrome://chrome-urls 中的 chrome://linux-proxy-config , 你可以看到网址给你的提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在受支持的桌面环境中运行Google Chrome时，将使用系统代理设置。但您的系统不受支持，或启动系统配置时出现问题。</span><br><span class="line"></span><br><span class="line">但您仍可通过命令行进行配置。如需详细了解各项实验功能和环境变量，请参见 man google-chrome-stable。</span><br></pre></td></tr></table></figure></p>
+<h2><span id="解决">解决</span></h2><p>那么问题就很简单了，加上配置参数就行。<br>通过</p>
+<blockquote>
+<p>man google-chrome-stable<br>查看 proxy 的相关选项。</p>
 </blockquote>
-<h2><span id="修复步骤">修复步骤：</span></h2><p>&ensp;找到当初装系统时候的启动U盘，从里面提取 <code>dkms_2.3-3ubuntu9.2_all.deb</code> 文件和 <code>bcmwl/bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64.deb</code> 文件。<br>（如果没有的话也不必急着去重新制作系统启动盘，一般只要有当初安装的<code>iso</code>文件，就能从系统镜像中提取出来。</p>
-<p>具体位置分别为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 18.0/pool/main/d/dkms/dkms_2.3-3ubuntu9.2_all.deb</span><br><span class="line"></span><br><span class="line">Ubuntu 18.0/pool/restricted/b/bcmwl/bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64.deb</span><br></pre></td></tr></table></figure></p>
-<p>取出后运行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i dkms_2.3-3ubuntu9.2_all.deb</span><br><span class="line">sudo dpkg -i bcmwl/bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64.deb</span><br></pre></td></tr></table></figure></p>
-<p>之后运行 <code>ifconfig</code> 检测一下，若还是只有本地回环<code>lo</code>，请重启再检测。</p>
-<p>一般重启过后就会发现驱动已经恢复正常。</p>
-<h2><span id="题外话">题外话</span></h2><p>&emsp;顺带一提，当初在我的旧电脑上安装Ubuntu时出现过 <code>broadcom</code> 网卡驱动没能预安装的情况，上面的修复过程同样适用。注意：网卡为 <code>broadcom</code> 类型的一般Ubuntu不会预安装，网上的驱动七七八八难找的要命，<code>broadcom</code> 官网也不提供某些型号的驱动下载，用上面这种方式最为方便。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">--proxy-server=host:port</span><br><span class="line">       Specify the HTTP/SOCKS4/SOCKS5 proxy server to use for requests.</span><br><span class="line"></span><br><span class="line">       This overrides any environment variables or settings picked  via</span><br><span class="line">       the  options  dialog.   An  individual proxy server is specified</span><br><span class="line">       using the format:</span><br><span class="line"></span><br><span class="line">         [&lt;proxy-scheme&gt;://]&lt;proxy-host&gt;[:&lt;proxy-port&gt;]</span><br><span class="line"></span><br><span class="line">       Where &lt;proxy-scheme&gt; is the protocol of the proxy server, and is</span><br><span class="line">       one of:</span><br><span class="line"></span><br><span class="line">         &quot;http&quot;, &quot;socks&quot;, &quot;socks4&quot;, &quot;socks5&quot;.</span><br><span class="line"></span><br><span class="line">       If  the  &lt;proxy-scheme&gt;  is omitted, it defaults to &quot;http&quot;. Also</span><br><span class="line">       note that &quot;socks&quot; is equivalent to &quot;socks5&quot;.</span><br><span class="line"></span><br><span class="line">       Examples:</span><br><span class="line"></span><br><span class="line">         --proxy-server=&quot;foopy:99&quot;</span><br><span class="line">             Use the HTTP proxy &quot;foopy:99&quot; to load all URLs.</span><br><span class="line"></span><br><span class="line">         --proxy-server=&quot;socks://foobar:1080&quot;</span><br><span class="line">             Use the SOCKS v5 proxy &quot;foobar:1080&quot; to load all URLs.</span><br><span class="line"></span><br><span class="line">         --proxy-server=&quot;socks4://foobar:1080&quot;</span><br><span class="line">             Use the SOCKS v4 proxy &quot;foobar:1080&quot; to load all URLs.</span><br><span class="line"></span><br><span class="line">         --proxy-server=&quot;socks5://foobar:66&quot;</span><br><span class="line">             Use the SOCKS v5 proxy &quot;foobar:66&quot; to load all URLs.</span><br><span class="line"></span><br><span class="line">       It is also possible to specify a separate proxy server for  dif‐</span><br><span class="line">       ferent URL types, by prefixing the proxy server specifier with a</span><br><span class="line">       URL specifier:</span><br><span class="line"></span><br><span class="line">       Example:</span><br><span class="line"></span><br><span class="line">         --proxy-server=&quot;https=proxy1:80;http=socks4://baz:1080&quot;</span><br><span class="line">             Load https://* URLs using the HTTP proxy &quot;proxy1:80&quot;.  And</span><br><span class="line">       load http://*</span><br><span class="line">             URLs using the SOCKS v4 proxy &quot;baz:1080&quot;.</span><br><span class="line"></span><br><span class="line">--no-proxy-server</span><br><span class="line">       Disables  the proxy server.  Overrides any environment variables</span><br><span class="line">       or settings picked via the options dialog.</span><br><span class="line"></span><br><span class="line">--proxy-auto-detect</span><br><span class="line">       Autodetect proxy configuration.  Overrides any environment vari‐</span><br><span class="line">       ables or settings picked via the options dialog.</span><br></pre></td></tr></table></figure>
+<p>我的shadowsockks是基于socks协议，端口为127.0.0.1:1080 的，于是我的操作如下：<br>打开 google-chrome-stable 的启动快捷方式：</p>
+<blockquote>
+<p>sudo vim /usr/share/applications/google-chrome-stable.desktop</p>
+</blockquote>
+<p>查找每一个 <code>Exec</code>, 在该行后面添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--proxy-server=&quot;socks://127.0.0.1:1080&quot;</span><br></pre></td></tr></table></figure></p>
+<p>如果你使用的协议跟我不同的话，做一些相应的修改即可。</p>
 
       
     </div>
@@ -435,6 +457,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/config-Applications/" rel="tag"># config Applications</a>
+          
+        </div>
+      
 
       
       
@@ -444,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/19/修复Ubuntu系统内核崩溃错误/" rel="next" title="修复Ubuntu系统内核崩溃错误">
-                <i class="fa fa-chevron-left"></i> 修复Ubuntu系统内核崩溃错误
+              <a href="/2018/09/30/Windows下Linux子系统迁移到非系统盘/" rel="next" title="Windows下Linux子系统迁移到非系统盘">
+                <i class="fa fa-chevron-left"></i> Windows下Linux子系统迁移到非系统盘
               </a>
             
           </div>
@@ -453,10 +481,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/19/Ubuntu下安装shadowsocks/" rel="prev" title="Ubuntu下安装shadowsocks">
-                Ubuntu下安装shadowsocks <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前景说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">修复步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">题外话</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">问题陈述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">寻找解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">解决</span></a></li></ol></div>
             
 
           </div>
