@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlycaptain.github.io/"/>
-  <updated>2018-12-03T08:00:44.049Z</updated>
+  <updated>2018-12-03T08:43:28.682Z</updated>
   <id>https://onlycaptain.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux下终端分屏</title>
+    <link href="https://onlycaptain.github.io/2018/12/03/Linux%E4%B8%8B%E7%BB%88%E7%AB%AF%E5%88%86%E5%B1%8F/"/>
+    <id>https://onlycaptain.github.io/2018/12/03/Linux下终端分屏/</id>
+    <published>2018-12-03T08:29:07.000Z</published>
+    <updated>2018-12-03T08:43:28.682Z</updated>
+    
+    <content type="html"><![CDATA[<p>@author zhanjzh</p><a id="more"></a><h2><span id="linux下终端分屏效果">Linux下终端分屏效果</span></h2><p>效果如下：</p><p><img src="distru-3.png"></p><h2><span id="工具">工具</span></h2><p>tmux</p><p>安装:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tmux</span><br></pre></td></tr></table></figure><p>运行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure><h2><span id="常用命令">常用命令：</span></h2><table><thead><tr><th>命令</th><th>快捷键</th></tr></thead><tbody><tr><td>复制</td><td>c + b  , 用光标选取要复制的内容</td></tr><tr><td>粘贴</td><td>c + b+ ]</td></tr><tr><td>竖直分屏</td><td>c + b  “</td></tr><tr><td>水平分屏</td><td>c + b %</td></tr></tbody></table><p>配置让鼠标能够调节窗口大小以及选择终端：</p><p>新建配置文件 <code>~/.tmux.conf</code></p><p>如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Enable mouse mode (tmux 2.1 and above)</span><br><span class="line">set -g mouse on</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Enable oh my zsh in tmux</span><br><span class="line">set -g default-command /bin/zsh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Mouse based copy</span><br><span class="line">bind-key -T copy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"</span><br><span class="line">bind-key -T copy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 新建分屏保留原来路径</span><br><span class="line">bind '"' split-window -c "#&#123;pane_current_path&#125;"</span><br><span class="line">bind % split-window -h -c "#&#123;pane_current_path&#125;"</span><br><span class="line">bind c new-window -c "#&#123;pane_current_path&#125;"</span><br><span class="line">~</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;@author zhanjzh&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Vim自动补全插件YouCompleteMe安装</title>
