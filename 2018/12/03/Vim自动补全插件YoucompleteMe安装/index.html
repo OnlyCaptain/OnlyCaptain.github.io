@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta name="baidu-site-verification" content="8l7DbXJXje" />
+<meta name="google-site-verification" content="961s_JVOq6Z0KQsU8sJEzQY7uAiUUBIIq4w1kJg-woM" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="@author zhanjzh">
+<meta name="keywords" content="configuration study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim自动补全插件YouCompleteMe安装">
+<meta property="og:url" content="https://onlycaptain.github.io/2018/12/03/Vim自动补全插件YoucompleteMe安装/index.html">
+<meta property="og:site_name" content="Captain&#39;s blog">
+<meta property="og:description" content="@author zhanjzh">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-03T08:00:44.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim自动补全插件YouCompleteMe安装">
+<meta name="twitter:description" content="@author zhanjzh">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Captain's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://onlycaptain.github.io/2018/12/03/Vim自动补全插件YoucompleteMe安装/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Vim自动补全插件YouCompleteMe安装 | Captain's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/OnlyCaptain"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    
+	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Captain's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">No sense no words</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+    <a href="/schedule/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />Schedule</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2018/12/03/Vim自动补全插件YoucompleteMe安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanjzh">
+      <meta itemprop="description" content="从来没有不会忘记的事">
+      <meta itemprop="image" content="/uploads/captain.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Captain's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vim自动补全插件YouCompleteMe安装
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-03 14:56:39 / Modified: 16:00:44" itemprop="dateCreated datePublished" datetime="2018-12-03T14:56:39+08:00">2018-12-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/03/Vim自动补全插件YoucompleteMe安装/" class="leancloud_visitors" data-flag-title="Vim自动补全插件YouCompleteMe安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>@author zhanjzh</p>
+<a id="more"></a>
+<h2><span id="youcompleteme">YouCompleteMe</span></h2><p>简称YCM，使用vim编程的人应该都有所耳闻，YCM作为Vim的补全插件真的是神器。</p>
+<p>一般情况下，我使用vscode来编程，vscode本身就已经有很不错的补全插件，但是在进行cuda编程时，很无奈的发现vscode只有一个很残缺的<code>vscode-cudacpp</code> 插件。为什么说残缺呢，是因为这个插件能提供的功能只有<code>.cu</code> 文件中对cuda 语法高亮，支持的语法补全都是缩写，只支持很少数的一部分函数，并且没有函数提示。</p>
+<p>相比之下，vim 下的YouCompleteMe就表现得十分优秀。</p>
+<h2><span id="前提条件">前提条件</span></h2><p>安装YCM是有版本前提的，</p>
+<ol>
+<li>vim版本要8.0 或者以上（最新）</li>
+<li>自己安装 git 工具包</li>
+<li>vim支持 python2或者 python3</li>
+</ol>
+<h2><span id="安装过程">安装过程</span></h2><p>在网上找到了不止一个版本的安装博客，翻来翻去都试了一下，大致的方法有下面几种：</p>
+<ul>
+<li>使用系统自带的clang</li>
+<li>使用YCM自己下载的clang</li>
+<li>使用自己编译的clang</li>
+</ul>
+<p>无论哪种安装之后都不太行，YCM好用是好用，安装是真的坑。</p>
+<p>官网README的安装教程： <a href="https://github.com/Valloric/YouCompleteMe" target="_blank" rel="noopener">readme</a></p>
+<p>我的系统为 Ubuntu</p>
+<h3><span id="1-配置vim的插件管理器-vundle">1. 配置vim的插件管理器 vundle</span></h3><p>在<code>~/.vim</code> 目录下，先自行下载<code>vundle</code> 文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</span><br></pre></td></tr></table></figure>
+<p>修改<code>vim</code>的配置文件<code>~/.vimrc</code> （第一次使用vim的人请自行创建）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible</span><br><span class="line">"filetype off</span><br><span class="line">set rtp+=~/.vim/bundle/vundle</span><br><span class="line">call vundle#begin()</span><br><span class="line">Bundle 'gmarik/vundle'</span><br><span class="line">Plugin 'Valloric/YouCompleteMe'</span><br><span class="line">"Brief help of vundle</span><br><span class="line">    ":BundleList</span><br><span class="line">    ":BundleInstall</span><br><span class="line">    ":BundleSearch</span><br><span class="line">    ":BundleClean</span><br><span class="line">    ":help vundle</span><br><span class="line">"End brief help</span><br><span class="line"></span><br><span class="line">call vundle#end()</span><br></pre></td></tr></table></figure>
+<h3><span id="2-使用vundle安装ycm">2. 使用vundle安装YCM</span></h3><p>第一步修改配置文件后退出重新进入<code>vim</code> ，在<code>vim</code> 下执行<code>BundleInstall</code> .</p>
+<p>具体步骤：按下<code>Esc</code> 键，<code>shift</code> + <code>;</code> 按出 <code>:</code> ，输入<code>BundleInstall</code>。</p>
+<p>等待YCM安装完毕之后，在目录 <code>~/.vim/bundle/</code> 下应该会看到有 <code>YouCompleteMe</code> 这个目录。</p>
+<h3><span id="3-配置ycm的自动补全">3. 配置YCM的自动补全</span></h3><p>主要配置的是 C和C++ 的自动补全。</p>
+<p>按照官网的安装步骤，下面应该执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.vim/bundle/YouCompleteMe</span><br><span class="line">python3 install.py --all</span><br></pre></td></tr></table></figure>
+<p>然而很遗憾，如果直接按照这个步骤来执行在下载 clang 时会报出类似这个错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for file: [/home/irvinglwj/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/../clang_archives/clang+llvm-3.9.0-x86_64-opensuse13.2.tar.xz]</span><br><span class="line">  expected hash: [9153b473dc37d2e21a260231e90e43b97aba1dff5d27f14c947815a90fbdc8d7]</span><br><span class="line">    actual hash: [e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855]</span><br><span class="line">         status: [7;&quot;Couldn&apos;t connect to server&quot;]</span><br></pre></td></tr></table></figure>
+<p>意思是下载的hash不匹配。网上查了信息后有网友说原因是这个：clang官网地址迁移，但是安装包还是使用的旧的地址，因此会解析失败。</p>
+<p>既然下载失败那就只能自行编译或者加上 <code>--system-libclang</code> 参数</p>
+<p>但是经常会报出<code>YCM server shut down</code>  之类的奇妙错误。下面我说一下我的做法：</p>
+<ol>
+<li>自行下载对应的 clang + llvm 安装包，没记错的话我是在这里下载的： <a href="http://releases.llvm.org/download.html#7.0.0" target="_blank" rel="noopener">clang+llvm7.0</a> </li>
+<li>将下载完的压缩包放入<code>~/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives</code> 目录下</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ~/Downloads/libclang-7.0.0-x86_64-unknown-linux-gnu.tar.bz2 ~/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>执行官网的安装命令：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.vim/bundle/YouCompleteMe</span><br><span class="line">python3 install.py --clang-completer</span><br></pre></td></tr></table></figure>
+<p>如果执行 <code>--all</code> 的话在配置<code>c#</code> 补全时会出现一些错误，但是我目前不需要<code>c#</code> 的补全，因此没去管，另外YCM默认是有python补全的。</p>
+<p>到目前位置应该安装完，重新进入vim会提示没有配置文件<code>.ycm_extra_conf.py</code> ，下面会说一下<code>.ycm_extra_conf.py</code> 的配置。</p>
+<h3><span id="4-后续配置">4. 后续配置</span></h3><p>复制<code>.ycm_extra_conf.py</code> 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py ~/.vim</span><br></pre></td></tr></table></figure>
+<p>在<code>~/.vimrc</code> 添加配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let g:ycm_global_ycm_extra_conf=&apos;~/.vim/.ycm_extra_conf.py&apos;</span><br></pre></td></tr></table></figure>
+<p>这之后需要配置C++ 和 C 或者 cuda 的头文件所在地</p>
+<p>我的<code>.ycm_extra_conf.py</code> 文件如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copyright (C) 2014 Google Inc.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This file is part of ycmd.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ycmd is free software: you can redistribute it and/or modify</span></span><br><span class="line"><span class="comment"># it under the terms of the GNU General Public License as published by</span></span><br><span class="line"><span class="comment"># the Free Software Foundation, either version 3 of the License, or</span></span><br><span class="line"><span class="comment"># (at your option) any later version.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ycmd is distributed in the hope that it will be useful,</span></span><br><span class="line"><span class="comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span></span><br><span class="line"><span class="comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></span><br><span class="line"><span class="comment"># GNU General Public License for more details.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># You should have received a copy of the GNU General Public License</span></span><br><span class="line"><span class="comment"># along with ycmd.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> ycm_core</span><br><span class="line"></span><br><span class="line"><span class="comment"># These are the compilation flags that will be used in case there's no</span></span><br><span class="line"><span class="comment"># compilation database set (by default, one is not set).</span></span><br><span class="line"><span class="comment"># CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.</span></span><br><span class="line">flags = [</span><br><span class="line"><span class="string">'-Wall'</span>,</span><br><span class="line"><span class="string">'-Wextra'</span>,</span><br><span class="line"><span class="string">'-Werror'</span>,</span><br><span class="line"><span class="string">'-fexceptions'</span>,</span><br><span class="line"><span class="string">'-DNDEBUG'</span>,</span><br><span class="line"><span class="comment"># THIS IS IMPORTANT! Without a "-std=&lt;something&gt;" flag, clang won't know which</span></span><br><span class="line"><span class="comment"># language to use when compiling headers. So it will guess. Badly. So C++</span></span><br><span class="line"><span class="comment"># headers will be compiled as C headers. You don't want that so ALWAYS specify</span></span><br><span class="line"><span class="comment"># a "-std=&lt;something&gt;".</span></span><br><span class="line"><span class="comment"># For a C project, you would set this to something like 'c99' instead of</span></span><br><span class="line"><span class="comment"># 'c++11'.</span></span><br><span class="line"><span class="string">'-std=c++11'</span>,</span><br><span class="line"><span class="comment"># ...and the same thing goes for the magic -x option which specifies the</span></span><br><span class="line"><span class="comment"># language that the files to be compiled are written in. This is mostly</span></span><br><span class="line"><span class="comment"># relevant for c++ headers.</span></span><br><span class="line"><span class="comment"># For a C project, you would set this to 'c' instead of 'c++'.</span></span><br><span class="line"><span class="string">'-x'</span>,</span><br><span class="line"><span class="string">'c++'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/local/include'</span>,</span><br><span class="line"><span class="comment">#'-isystem',</span></span><br><span class="line"><span class="comment">#'/usr/include/c++/7.3.0',</span></span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include/c++/4.8'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/local/cuda-9.0/include'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/local/cuda'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/lib/gcc/x86_64-linux-gnu/4.8'</span>,</span><br><span class="line"><span class="comment">#'-isystem',</span></span><br><span class="line"><span class="comment">#'/usr/lib/gcc/x86_64-linux-gnu/7.3.0/../../../../include/c++/7.3.0/backward/',</span></span><br><span class="line"><span class="comment">#'-isystem',</span></span><br><span class="line"><span class="comment">#'/usr/include/clang/6.0.0/include',</span></span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include/x86_64-linux-gnu'</span>,</span><br><span class="line"><span class="comment">#'-isystem',</span></span><br><span class="line"><span class="comment">#'/usr/lib/llvm-6.0/lib/clang/6.0.0/include',</span></span><br><span class="line"><span class="comment">#'-isystem',</span></span><br><span class="line"><span class="comment">#'/usr/include/clang/6.0.0/include',</span></span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include/c++/4.8'</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set this to the absolute path to the folder (NOT the file!) containing the</span></span><br><span class="line"><span class="comment"># compile_commands.json file to use that instead of 'flags'. See here for</span></span><br><span class="line"><span class="comment"># more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Most projects will NOT need to set this to anything; you can just change the</span></span><br><span class="line"><span class="comment"># 'flags' list of compilation flags.</span></span><br><span class="line">compilation_database_folder = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.exists( compilation_database_folder ):</span><br><span class="line">  database = ycm_core.CompilationDatabase( compilation_database_folder )</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  database = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">SOURCE_EXTENSIONS = [ <span class="string">'.cpp'</span>, <span class="string">'.cxx'</span>, <span class="string">'.cc'</span>, <span class="string">'.c'</span>, <span class="string">'.m'</span>, <span class="string">'.mm'</span>, <span class="string">'.cu'</span> ]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DirectoryOfThisScript</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">return</span> os.path.dirname( os.path.abspath( __file__ ) )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">IsHeaderFile</span><span class="params">( filename )</span>:</span></span><br><span class="line">  extension = os.path.splitext( filename )[ <span class="number">1</span> ]</span><br><span class="line">  <span class="keyword">return</span> extension <span class="keyword">in</span> [ <span class="string">'.h'</span>, <span class="string">'.hxx'</span>, <span class="string">'.hpp'</span>, <span class="string">'.hh'</span> ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetCompilationInfoForFile</span><span class="params">( filename )</span>:</span></span><br><span class="line">  <span class="comment"># The compilation_commands.json file generated by CMake does not have entries</span></span><br><span class="line">  <span class="comment"># for header files. So we do our best by asking the db for flags for a</span></span><br><span class="line">  <span class="comment"># corresponding source file, if any. If one exists, the flags for that file</span></span><br><span class="line">  <span class="comment"># should be good enough.</span></span><br><span class="line">  <span class="keyword">if</span> IsHeaderFile( filename ):</span><br><span class="line">    basename = os.path.splitext( filename )[ <span class="number">0</span> ]</span><br><span class="line">    <span class="keyword">for</span> extension <span class="keyword">in</span> SOURCE_EXTENSIONS:</span><br><span class="line">      replacement_file = basename + extension</span><br><span class="line">      <span class="keyword">if</span> os.path.exists( replacement_file ):</span><br><span class="line">        compilation_info = database.GetCompilationInfoForFile(</span><br><span class="line">          replacement_file )</span><br><span class="line">        <span class="keyword">if</span> compilation_info.compiler_flags_:</span><br><span class="line">          <span class="keyword">return</span> compilation_info</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">  <span class="keyword">return</span> database.GetCompilationInfoForFile( filename )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># This is the entry point; this function is called by ycmd to produce flags for</span></span><br><span class="line"><span class="comment"># a file.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FlagsForFile</span><span class="params">( filename, **kwargs )</span>:</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> database:</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="string">'flags'</span>: flags,</span><br><span class="line">      <span class="string">'include_paths_relative_to_dir'</span>: DirectoryOfThisScript()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  compilation_info = GetCompilationInfoForFile( filename )</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> compilation_info:</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Bear in mind that compilation_info.compiler_flags_ does NOT return a</span></span><br><span class="line">  <span class="comment"># python list, but a "list-like" StringVec object.</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="string">'flags'</span>: list( compilation_info.compiler_flags_ ),</span><br><span class="line">    <span class="string">'include_paths_relative_to_dir'</span>: compilation_info.compiler_working_dir_</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>重要的地方只有<code>flags</code> 那里：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">flags = [</span><br><span class="line"><span class="string">'-Wall'</span>,</span><br><span class="line"><span class="string">'-Wextra'</span>,</span><br><span class="line"><span class="string">'-Werror'</span>,</span><br><span class="line"><span class="string">'-fexceptions'</span>,</span><br><span class="line"><span class="string">'-DNDEBUG'</span>,</span><br><span class="line"><span class="string">'-x'</span>,</span><br><span class="line"><span class="string">'c++'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/local/include'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include/c++/4.8'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/local/cuda-9.0/include'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/local/cuda'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/lib/gcc/x86_64-linux-gnu/4.8'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include/x86_64-linux-gnu'</span>,</span><br><span class="line"><span class="string">'-isystem'</span>,</span><br><span class="line"><span class="string">'/usr/include/c++/4.8'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>另外如果是跟我一样要配置cuda的补全的话，有些地方要修改一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SOURCE_EXTENSIONS = [ <span class="string">'.cpp'</span>, <span class="string">'.cxx'</span>, <span class="string">'.cc'</span>, <span class="string">'.c'</span>, <span class="string">'.m'</span>, <span class="string">'.mm'</span>, <span class="string">'.cu'</span> ] <span class="comment"># 添加 .cu</span></span><br></pre></td></tr></table></figure>
+<p>配置输入两个字符就能提示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let g:ycm_semantic_triggers=&#123;'c,cpp,python,cuda': ['re!\w&#123;2&#125;'] &#125;</span><br></pre></td></tr></table></figure>
+<p>取消函数提示时在上方跳出的框框：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set completeopt=menu,menuone</span><br><span class="line">let g:ycm_add_pre_view_to_completeopt=0</span><br></pre></td></tr></table></figure>
+<p>更多功能有待发掘。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/01/Ubuntu下google不能正确代理的解决方法/" rel="next" title="Ubuntu下google不能正确代理的解决方法">
+                <i class="fa fa-chevron-left"></i> Ubuntu下google不能正确代理的解决方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/captain.jpg#/images/avatar.gif"
+                alt="zhanjzh" />
+            
+              <p class="site-author-name" itemprop="name">zhanjzh</p>
+              <p class="site-description motion-element" itemprop="description">从来没有不会忘记的事</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">YouCompleteMe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">前提条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">1. 配置vim的插件管理器 vundle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">2. 使用vundle安装YCM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">3. 配置YCM的自动补全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">4. 后续配置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanjzh</span>
+
+  
+
+  
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "8KzylJIt68eqvn7fy7eAdrQO-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "8KzylJIt68eqvn7fy7eAdrQO-gzGzoHsz",
+                'X-LC-Key': "OER4DsSetyzAiFRjSfaaVnGa",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
