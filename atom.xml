@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlycaptain.github.io/"/>
-  <updated>2018-12-03T08:43:28.682Z</updated>
+  <updated>2018-12-24T17:33:52.033Z</updated>
   <id>https://onlycaptain.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XMind在Ubuntu18.04下不能运行的解决方法</title>
+    <link href="https://onlycaptain.github.io/2018/12/25/XMind%E5%9C%A8Ubuntu18-04%E4%B8%8B%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>https://onlycaptain.github.io/2018/12/25/XMind在Ubuntu18-04下不能运行的解决方法/</id>
+    <published>2018-12-24T17:20:14.000Z</published>
+    <updated>2018-12-24T17:33:52.033Z</updated>
+    
+    <content type="html"><![CDATA[<p>@author – zhanjzh</p><a id="more"></a><h2><span id="安装xmind">安装Xmind</span></h2><p>出错：</p><p><img src="error.png"></p><h2><span id="问题定位">问题定位</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">!ENTRY org.xmind.cathy 1 0 2018-12-25 01:14:41.962</span><br><span class="line">!MESSAGE Skip unrecognized command line argument: &apos;-eclipse.keyring&apos;</span><br><span class="line"></span><br><span class="line">!ENTRY org.xmind.cathy 1 0 2018-12-25 01:14:41.963</span><br><span class="line">!MESSAGE Skip unrecognized command line argument: &apos;@user.home/.xmind/secure_storage_linux&apos;</span><br><span class="line"></span><br><span class="line">!ENTRY org.eclipse.osgi.compatibility.state.nl_da 2 0 2018-12-25 01:14:42.051</span><br><span class="line">!MESSAGE Could not resolve module: org.eclipse.osgi.compatibility.state.nl_da [840]</span><br><span class="line">  Unresolved requirement: Fragment-Host: org.eclipse.osgi.compatibility.state</span><br><span class="line">  Unresolved requirement: Fragment-Host: org.eclipse.osgi.compatibility.state</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">!ENTRY org.eclipse.osgi.compatibility.state.nl_it 2 0 2018-12-25 01:14:42.051</span><br><span class="line">!MESSAGE Could not resolve module: org.eclipse.osgi.compatibility.state.nl_it [844]</span><br><span class="line">  Unresolved requirement: Fragment-Host: org.eclipse.osgi.compatibility.state</span><br><span class="line">  Unresolved requirement: Fragment-Host: org.eclipse.osgi.compatibility.state</span><br></pre></td></tr></table></figure><h2><span id="解决">解决</span></h2><p>在Xmind的一个<a href="http://support.xmind.net/customer/portal/questions/17144128-xmind-starts-but-then-is-aborted-just-before-starting-to-run" target="_blank" rel="noopener">论坛</a>上有人提供了一种解决方案<br>如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Write on your terminal : sudo gedit &quot;/opt/xmind/XMind_amd64/XMind.ini&quot;</span><br><span class="line"></span><br><span class="line">And add this </span><br><span class="line"></span><br><span class="line">-vmargs</span><br><span class="line">--add-modules=java.se.ee</span><br><span class="line">-Dosgi.requiredJavaVersion=1.8</span><br><span class="line">-Xms256m</span><br><span class="line">-Xmx1024m</span><br></pre></td></tr></table></figure><p>下面是修改后的<code>XMind.ini</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">-configuration</span><br><span class="line">./configuration</span><br><span class="line">-data</span><br><span class="line">../workspace</span><br><span class="line">-startup</span><br><span class="line">../plugins/org.eclipse.equinox.launcher_1.3.200.v20160318-1642.jar</span><br><span class="line">--launcher.library</span><br><span class="line">../plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.400.v20160518-1444</span><br><span class="line">--launcher.defaultAction</span><br><span class="line">openFile</span><br><span class="line">--launcher.GTK_version</span><br><span class="line">2</span><br><span class="line">-eclipse.keyring</span><br><span class="line">@user.home/.xmind/secure_storage_linux</span><br><span class="line">-vmargs</span><br><span class="line">--add-modules=java.se.ee</span><br><span class="line">-Dosgi.requiredJavaVersion=1.8</span><br><span class="line">-Xms256m</span><br><span class="line">-Xmx1024m</span><br><span class="line">-Dfile.encoding=UTF-8</span><br></pre></td></tr></table></figure><p>亲测成功</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;@author – zhanjzh&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux下终端分屏</title>
