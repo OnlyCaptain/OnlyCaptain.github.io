@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="Captain&#39;s blog">
 <meta property="og:description" content="前言开学头将系统换成了arch，之前在ubuntu上的一套vim配置由于稍微复杂了点，本来已经打算不再继续配置不料这学期还是要继续学cuda，这样导致我还是要继续用vim。（vscode 上的cuda补全比较差) 这篇博客我会将我使用到的插件和配置内容放上来.偶尔会更新下如何安装以及为何这样配置的内容。顺便提一下这段时间可能要升级一下博客的网站，之前只配置了阅读数量，我觉得应该配置下评论内容了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T10:23:17.074Z">
+<meta property="og:updated_time" content="2019-04-07T18:33:16.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim配置">
 <meta name="twitter:description" content="前言开学头将系统换成了arch，之前在ubuntu上的一套vim配置由于稍微复杂了点，本来已经打算不再继续配置不料这学期还是要继续学cuda，这样导致我还是要继续用vim。（vscode 上的cuda补全比较差) 这篇博客我会将我使用到的插件和配置内容放上来.偶尔会更新下如何安装以及为何这样配置的内容。顺便提一下这段时间可能要升级一下博客的网站，之前只配置了阅读数量，我觉得应该配置下评论内容了。">
@@ -357,12 +357,24 @@
                 
               
 
-              <time title="Created: 2019-04-07 18:08:14 / Modified: 18:23:17" itemprop="dateCreated datePublished" datetime="2019-04-07T18:08:14+08:00">2019-04-07</time>
+              <time title="Created: 2019-04-07 18:08:14" itemprop="dateCreated datePublished" datetime="2019-04-07T18:08:14+08:00">2019-04-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-08 02:33:16" itemprop="dateModified" datetime="2019-04-08T02:33:16+08:00">2019-04-08</time>
               
             
           </span>
@@ -441,6 +453,29 @@
 </ul>
 </li>
 </ul>
+<h2><span id="配置效果">配置效果</span></h2><p>目前也没有太多花里胡哨的，因此就不放截图，这里先讲一下具体做了哪些改动。<br>本着实用性和个性至上的原则，我做的配置都是让自己用起来更舒适的操作，这里留起来等以后在新环境里面重新配置时不用太烦恼。</p>
+<ol>
+<li><p>一开始先配置后YCM的代码补全这点是没有什么疑问的，arch下最棒的一点是AUR有配置好的YCM，只需要一个命令就可以轻松安装，不像之前在Ubuntu上光是安装合适版本的clang就花了两个下午。YCM需要的 .ycm_extra_conf.py 在上一篇博客里面有，但其实我做了一些改动，之后有时间再放上来吧。<br>配置好代码补全, 然后需要调整一下YCM自动补全跳出来的列表中选中的按钮。原本默认的是 <c-y>，也就是 ctrl + y，修改成了回车键 <c-r>。当然在 .ycm_extra_conf.py 里面肯定先配置了 .cu 程序的补全识别啦。<br>然后是调整了下补全代码的触发规则，我这里调整成了按前面两个字就补全的规则，大概就是 <code>let g:ycm_semantic_triggers</code> 那部分内容。</c-r></c-y></p>
+</li>
+<li><p>配置好代码补全，在使用过程中发现没有花括号回车换行缩进补全实在不舒适，于是先试了按键映射，一开始效果还算不错，但是后来发现不行。<br>不行是因为我发现在行首删除时由于是调用的函数也就是在 normal 模式下进行的操作，导致无论怎么调整在行首删除一个字母总是会跳到后面一个字母的位置。几番尝试，研究了下vimscrip的编写后放弃，直接用现成的插件算了。<br>这就是后来使用到的delimitMate 插件，功能还算比较全，配置语句也就两三句。</p>
+</li>
+<li><p>调整了delimitMate 与YCM关于回车键映射的冲突。</p>
+</li>
+<li><p>vim-latexsuite 和 snippets 都是正在学习的内容，vundle只是为了管理插件，同时也在使用系统自带的pacman来安装插件。</p>
+</li>
+<li><p>尝试修改终端下标签页的切换映射，本来想换成像是vscode 里面的ctrl + tab 快捷键，不料在vim下的终端是识别不出<tab> 和 <c-tab> 的（原因是终端下其实 <tab> 其实是 <c-i> 不信你在终端下按下 ctrl + i, 你会发现缩进了）,无奈只能放弃，现在的切换控制是 <c-left> 和 <c-right>。</c-right></c-left></c-i></tab></c-tab></tab></p>
+</li>
+<li><p>更换配色。这一点简直是致命的问题。写代码高亮是共识，颜色模糊不全是大忌！由于颜色不够显眼，不够符合口味，我自己修改了几个地方，第一个是YCM的警告配色(YcmWarningSection)，第二个是括号的匹配颜色(Matchparen), 还有一个隐藏配色好像没修改成功？暂时不管，代码折叠现在还没有使用太多。（代码折叠，<z-o> 打开， <z-c> 折叠）。</z-c></z-o></p>
+</li>
+<li><p>打开鼠标控制，之前一直是关闭的，因为在笔记本上打字总是会误触触摸板造成点击，现在新系统没有这个问题，因为我还没修好不能触摸点击的这个bug。</p>
+</li>
+<li><p>修改光标形状。这个查资料看到不同的终端配置是不一样的，我这里使用到的终端是 gnome-terminal。效果是插入模式下是竖线，可视模式下和普通模式下是方块。并且普通终端下保持方块形状。</p>
+</li>
+<li><p>在编辑 latex 文件时，一些数学符号会自动进行转义、隐藏，例如<code>\bigcap</code> 当光标不在其所在行时会显示成$\bigcap$。</p>
+</li>
+<li><p>目前正在研究如何将vim配合zathura使用，这个得看时间。</p>
+</li>
+</ol>
 
       
     </div>
@@ -649,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">vim 配置内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">vim 配置内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置效果</span></a></li></ol></div>
             
 
           </div>
