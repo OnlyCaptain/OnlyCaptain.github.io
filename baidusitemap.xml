@@ -1,224 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-
-    
   <url>
+    <loc>https://onlycaptain.github.io/2019/04/07/vim%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2019-04-07</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/12/25/XMind%E5%9C%A8Ubuntu18-04%E4%B8%8B%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2018-12-24T17:33:52.033Z</lastmod>
-    <data>
-        <display>
-        <title>XMind在Ubuntu18.04下不能运行的解决方法</title>
-        <pubTime>2018-12-24T17:20:14.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-12-24</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/12/03/Linux%E4%B8%8B%E7%BB%88%E7%AB%AF%E5%88%86%E5%B1%8F/</loc>
-    <lastmod>2018-12-03T08:43:28.682Z</lastmod>
-    <data>
-        <display>
-        <title>Linux下终端分屏</title>
-        <pubTime>2018-12-03T08:29:07.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-12-24</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/12/03/Vim%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E6%8F%92%E4%BB%B6YoucompleteMe%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2018-12-03T08:00:44.049Z</lastmod>
-    <data>
-        <display>
-        <title>Vim自动补全插件YouCompleteMe安装</title>
-        <pubTime>2018-12-03T06:56:39.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-12-03</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/08/19/%E4%BF%AE%E5%A4%8DUbuntu%E4%B8%8B%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E9%94%99%E8%AF%AF/</loc>
-    <lastmod>2018-11-01T09:32:20.998Z</lastmod>
-    <data>
-        <display>
-        <title>修复Ubuntu下驱动错误</title>
-        <pubTime>2018-08-18T16:53:40.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-11-01</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/10/01/Ubuntu%E4%B8%8Bgoogle%E4%B8%8D%E8%83%BD%E6%AD%A3%E7%A1%AE%E4%BB%A3%E7%90%86%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2018-10-01T14:38:17.292Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu下google不能正确代理的解决方法</title>
-        <pubTime>2018-10-01T14:21:20.000Z</pubTime>
-        
-        <tag>config Applications</tag>
-         
-         
-           
-             
-              <breadCrumb title="config" url="https://onlycaptain.github.io/categories/config/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-10-01</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/09/30/Windows%E4%B8%8BLinux%E5%AD%90%E7%B3%BB%E7%BB%9F%E8%BF%81%E7%A7%BB%E5%88%B0%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98/</loc>
-    <lastmod>2018-09-29T17:25:17.539Z</lastmod>
-    <data>
-        <display>
-        <title>Windows下Linux子系统迁移到非系统盘</title>
-        <pubTime>2018-09-29T17:11:19.000Z</pubTime>
-        
-        <tag>config</tag>
-         
-         
-           
-             
-              <breadCrumb title="Windows" url="https://onlycaptain.github.io/categories/Windows/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-09-29</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/09/07/Ubuntu%E4%B8%8B%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2018-09-23T07:30:43.315Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu下实用配置</title>
-        <pubTime>2018-09-07T15:46:08.000Z</pubTime>
-        
-        <tag>Ubuntu Application</tag>
-         
-         
-           
-             
-              <breadCrumb title="Ubuntu config" url="https://onlycaptain.github.io/categories/Ubuntu-config/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-09-23</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/05/21/openGL%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2018-08-19T09:47:50.220Z</lastmod>
-    <data>
-        <display>
-        <title>OpenGL配置</title>
-        <pubTime>2018-05-21T15:20:39.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-    
-  <url>
+    <lastmod>2018-08-19</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/08/19/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85shadowsocks/</loc>
-    <lastmod>2018-08-18T18:37:16.099Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu下安装shadowsocks</title>
-        <pubTime>2018-08-18T17:01:46.000Z</pubTime>
-        
-        <tag>Ubuntu</tag>
-         
-        <tag>Application</tag>
-         
-         
-           
-             
-              <breadCrumb title="Ubuntu" url="https://onlycaptain.github.io/categories/Ubuntu/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-08-18</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/08/19/Ubuntu%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD/</loc>
-    <lastmod>2018-08-18T18:36:47.083Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu系统备份</title>
-        <pubTime>2018-08-18T17:10:06.000Z</pubTime>
-        
-        <tag>Ubuntu</tag>
-         
-        <tag>system</tag>
-         
-         
-           
-             
-              <breadCrumb title="Ubuntu" url="https://onlycaptain.github.io/categories/Ubuntu/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-08-18</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/08/18/Ubuntu%E4%B8%8BNvidia%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2018-08-18T18:36:13.123Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu下Nvidia驱动安装</title>
-        <pubTime>2018-08-18T13:18:04.000Z</pubTime>
-        
-        <tag>Ubuntu</tag>
-         
-        <tag>Nvidia</tag>
-         
-         
-           
-             
-              <breadCrumb title="Ubuntu" url="https://onlycaptain.github.io/categories/Ubuntu/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-08-18</lastmod>
+  </url>  <url>
     <loc>https://onlycaptain.github.io/2018/08/19/%E4%BF%AE%E5%A4%8DUbuntu%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8%E5%B4%A9%E6%BA%83%E9%94%99%E8%AF%AF/</loc>
-    <lastmod>2018-08-18T16:52:03.099Z</lastmod>
-    <data>
-        <display>
-        <title>修复Ubuntu系统内核崩溃错误</title>
-        <pubTime>2018-08-18T16:40:56.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
+    <lastmod>2018-08-18</lastmod>
+  </url>
 </urlset>
