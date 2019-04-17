@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlycaptain.github.io/"/>
-  <updated>2019-04-09T11:48:59.849Z</updated>
+  <updated>2019-04-17T12:19:15.840Z</updated>
   <id>https://onlycaptain.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将博客搬至CSDN</title>
+    <link href="https://onlycaptain.github.io/2019/04/17/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/"/>
+    <id>https://onlycaptain.github.io/2019/04/17/将博客搬至CSDN/</id>
+    <published>2019-04-17T12:18:20.000Z</published>
+    <updated>2019-04-17T12:19:15.840Z</updated>
+    
+    <content type="html"><![CDATA[<p>@author – zhanjzh</p><p>升级博客系统，暂时迁移至CSDN</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;@author – zhanjzh&lt;/p&gt;
+&lt;p&gt;升级博客系统，暂时迁移至CSDN&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>vim配置</title>
