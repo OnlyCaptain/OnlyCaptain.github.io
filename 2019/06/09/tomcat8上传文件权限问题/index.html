@@ -110,17 +110,18 @@
 
 
 
-  <meta name="description" content="从来没有不会忘记的事">
+  <meta name="description" content="最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。 通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027 具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句: /etc/environment1export UMASK=&amp;apos;0022&amp;apos;">
 <meta name="keywords" content="configuration study">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Captain&#39;s blog">
-<meta property="og:url" content="https://onlycaptain.github.io/archives/2019/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat8上传文件权限问题">
+<meta property="og:url" content="https://onlycaptain.github.io/2019/06/09/tomcat8上传文件权限问题/index.html">
 <meta property="og:site_name" content="Captain&#39;s blog">
-<meta property="og:description" content="从来没有不会忘记的事">
+<meta property="og:description" content="最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。 通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027 具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句: /etc/environment1export UMASK=&amp;apos;0022&amp;apos;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-09T10:25:38.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Captain&#39;s blog">
-<meta name="twitter:description" content="从来没有不会忘记的事">
+<meta name="twitter:title" content="tomcat8上传文件权限问题">
+<meta name="twitter:description" content="最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。 通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027 具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句: /etc/environment1export UMASK=&amp;apos;0022&amp;apos;">
 
 
 
@@ -129,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="https://onlycaptain.github.io/archives/2019/">
+  <link rel="canonical" href="https://onlycaptain.github.io/2019/06/09/tomcat8上传文件权限问题/">
 
 
 
@@ -139,7 +140,7 @@
   };
 </script>
 
-  <title>Archive | Captain's blog</title>
+  <title>tomcat8上传文件权限问题 | Captain's blog</title>
   
 
 
@@ -186,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/OnlyCaptain"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
@@ -253,7 +254,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
@@ -294,139 +295,181 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 14 posts in total. Keep on posting.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2019/06/09/tomcat8上传文件权限问题/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanjzh">
+      <meta itemprop="description" content="从来没有不会忘记的事">
+      <meta itemprop="image" content="/uploads/captain.jpg#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Captain's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/06/09/tomcat8上传文件权限问题/" itemprop="url">
-              
-                <span itemprop="name">tomcat8上传文件权限问题</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">tomcat8上传文件权限问题
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-09T18:22:16+08:00" content="2019-06-09">
-          06-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
 
+              
+                
+              
+
+              <time title="Created: 2019-06-09 18:22:16 / Modified: 18:25:38" itemprop="dateCreated datePublished" datetime="2019-06-09T18:22:16+08:00">2019-06-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/09/tomcat8上传文件权限问题/" class="leancloud_visitors" data-flag-title="tomcat8上传文件权限问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/07/vim配置/" itemprop="url">
-              
-                <span itemprop="name">vim配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-07T18:08:14+08:00" content="2019-04-07">
-          04-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。</p>
+<p>通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027</p>
+<p>具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句:</p>
+<p><code>/etc/environment</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export UMASK=&apos;0022&apos;</span><br></pre></td></tr></table></figure></p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/07/vim配置/" rel="next" title="vim配置">
+                <i class="fa fa-chevron-left"></i> vim配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -704,6 +747,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 
@@ -738,43 +785,35 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -794,9 +833,7 @@
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });

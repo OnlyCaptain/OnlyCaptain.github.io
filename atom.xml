@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://onlycaptain.github.io/"/>
-  <updated>2019-04-17T12:19:15.840Z</updated>
+  <updated>2019-06-09T10:25:38.726Z</updated>
   <id>https://onlycaptain.github.io/</id>
   
   <author>
@@ -17,21 +17,21 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>将博客搬至CSDN</title>
-    <link href="https://onlycaptain.github.io/2019/04/17/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/"/>
-    <id>https://onlycaptain.github.io/2019/04/17/将博客搬至CSDN/</id>
-    <published>2019-04-17T12:18:20.000Z</published>
-    <updated>2019-04-17T12:19:15.840Z</updated>
+    <title>tomcat8上传文件权限问题</title>
+    <link href="https://onlycaptain.github.io/2019/06/09/tomcat8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/"/>
+    <id>https://onlycaptain.github.io/2019/06/09/tomcat8上传文件权限问题/</id>
+    <published>2019-06-09T10:22:16.000Z</published>
+    <updated>2019-06-09T10:25:38.726Z</updated>
     
-    <content type="html"><![CDATA[<p>@author – zhanjzh</p><p>升级博客系统，暂时迁移至CSDN</p>]]></content>
+    <content type="html"><![CDATA[<p>最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。</p><p>通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027</p><p>具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句:</p><p><code>/etc/environment</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export UMASK=&apos;0022&apos;</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;@author – zhanjzh&lt;/p&gt;
-&lt;p&gt;升级博客系统，暂时迁移至CSDN&lt;/p&gt;
-
+        &lt;p&gt;最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。&lt;/p&gt;
+&lt;p&gt;通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027&lt;/p&gt;
+&lt;p&gt;具体的俺也不太了解，总之将它改成 0022 就好。
       
     
     </summary>

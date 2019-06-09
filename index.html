@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2019/04/17/将博客搬至CSDN/">
+    <link itemprop="mainEntityOfPage" href="https://onlycaptain.github.io/2019/06/09/tomcat8上传文件权限问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhanjzh">
@@ -334,8 +334,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/17/将博客搬至CSDN/" itemprop="url">
-                  将博客搬至CSDN
+                <a class="post-title-link" href="/2019/06/09/tomcat8上传文件权限问题/" itemprop="url">
+                  tomcat8上传文件权限问题
                 </a>
               
             
@@ -361,7 +361,7 @@
                 
               
 
-              <time title="Created: 2019-04-17 20:18:20 / Modified: 20:19:15" itemprop="dateCreated datePublished" datetime="2019-04-17T20:18:20+08:00">2019-04-17</time>
+              <time title="Created: 2019-06-09 18:22:16 / Modified: 18:25:38" itemprop="dateCreated datePublished" datetime="2019-06-09T18:22:16+08:00">2019-06-09</time>
             
 
             
@@ -379,7 +379,7 @@
 
           
           
-             <span id="/2019/04/17/将博客搬至CSDN/" class="leancloud_visitors" data-flag-title="将博客搬至CSDN">
+             <span id="/2019/06/09/tomcat8上传文件权限问题/" class="leancloud_visitors" data-flag-title="tomcat8上传文件权限问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -412,8 +412,10 @@
       
         
           
-            <p>@author – zhanjzh</p>
-<p>升级博客系统，暂时迁移至CSDN</p>
+            <p>最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。</p>
+<p>通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027</p>
+<p>具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句:</p>
+<p><code>/etc/environment</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export UMASK=&apos;0022&apos;</span><br></pre></td></tr></table></figure></p>
 
           
         
