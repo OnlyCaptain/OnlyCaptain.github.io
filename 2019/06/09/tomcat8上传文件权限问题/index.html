@@ -110,18 +110,18 @@
 
 
 
-  <meta name="description" content="最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。 通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027 具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句: /etc/environment1export UMASK=&amp;apos;0022&amp;apos;">
+  <meta name="description" content="@author –zhanjzh">
 <meta name="keywords" content="configuration study">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tomcat8上传文件权限问题">
 <meta property="og:url" content="https://onlycaptain.github.io/2019/06/09/tomcat8上传文件权限问题/index.html">
 <meta property="og:site_name" content="Captain&#39;s blog">
-<meta property="og:description" content="最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。 通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027 具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句: /etc/environment1export UMASK=&amp;apos;0022&amp;apos;">
+<meta property="og:description" content="@author –zhanjzh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-09T10:25:38.726Z">
+<meta property="og:updated_time" content="2019-06-09T10:27:07.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tomcat8上传文件权限问题">
-<meta name="twitter:description" content="最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。 通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027 具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句: /etc/environment1export UMASK=&amp;apos;0022&amp;apos;">
+<meta name="twitter:description" content="@author –zhanjzh">
 
 
 
@@ -357,7 +357,7 @@
                 
               
 
-              <time title="Created: 2019-06-09 18:22:16 / Modified: 18:25:38" itemprop="dateCreated datePublished" datetime="2019-06-09T18:22:16+08:00">2019-06-09</time>
+              <time title="Created: 2019-06-09 18:22:16 / Modified: 18:27:07" itemprop="dateCreated datePublished" datetime="2019-06-09T18:22:16+08:00">2019-06-09</time>
             
 
             
@@ -406,7 +406,8 @@
       
 
       
-        <p>最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。</p>
+        <p>@author –zhanjzh<br><a id="more"></a></p>
+<p>最近在写JSP上传程序时，发现JSP将文件上传过后，本地上不能查看上传的文件。</p>
 <p>通过尝试编辑发现权限不足，于是上网查了一下，发现是启动catalina.sh 时里面设置了UMASK变量为0027</p>
 <p>具体的俺也不太了解，总之将它改成 0022 就好。我在Linux环境变量下新加了一句:</p>
 <p><code>/etc/environment</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export UMASK=&apos;0022&apos;</span><br></pre></td></tr></table></figure></p>
